@@ -6,6 +6,7 @@ import Python from '../images/skills/python.svg';
 import Golang from '../images/skills/golang.svg';
 import Typescript from '../images/skills/typescript.svg';
 import Bootstrap from '../images/skills/bootstrap.svg';
+import Tailwind from '../images/skills/tailwindcss.svg';
 import Laravel from '../images/skills/laravel.svg';
 import Express from '../images/skills/express.svg';
 import React from '../images/skills/react.svg';
@@ -72,6 +73,10 @@ export const skills = [
             {
                 name: 'Bootstrap',
                 image: Bootstrap,
+            },
+            {
+                name: 'Tailwind',
+                image: Tailwind,
             },
             {
                 name: 'Laravel',
