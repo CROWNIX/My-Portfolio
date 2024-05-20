@@ -25,9 +25,7 @@ export const Bio = {
     github: 'https://github.com/CROWNIX',
     resume: 'https://drive.google.com/file/d/1ffZrcMcn8UatXGIaautbbqpV7ADNaETA/view?usp=sharing',
     linkedin: 'https://www.linkedin.com/in/rahmat-fauzi-widianto/',
-    twitter: 'https://twitter.com/RishavChanda',
     insta: 'https://www.instagram.com/rahmatfauzi.w/',
-    facebook: 'https://www.facebook.com/rishav.chanda.165/',
 };
 
 export const skills = [
