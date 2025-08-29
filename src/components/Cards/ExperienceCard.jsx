@@ -136,7 +136,6 @@ const ExperienceCard = ({ experience }) => {
                 </Body>
             </Top>
             <Description>
-                {experience?.desc && <Span>{experience?.desc}</Span>}
                 {experience?.skills && (
                     <Skills>
                         <ul>

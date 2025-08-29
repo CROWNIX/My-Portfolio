@@ -93,7 +93,7 @@ function Footer() {
                     <NavLink href="#skills">Skills</NavLink>
                     <NavLink href="#experience">Experience</NavLink>
                     <NavLink href="#projects">Projects</NavLink>
-                    <NavLink href="#education">Education</NavLink>
+                    {/* <NavLink href="#education">Education</NavLink> */}
                 </Nav>
                 <SocialMediaIcons>
                     <SocialMediaIcon href={Bio.linkedin} target="display">
@@ -103,7 +103,7 @@ function Footer() {
                         <InstagramIcon />
                     </SocialMediaIcon>
                 </SocialMediaIcons>
-                <Copyright>&copy; 2024 Rahmat Fauzi. All rights reserved.</Copyright>
+                <Copyright>&copy; 2025 Rahmat Fauzi. All rights reserved.</Copyright>
             </FooterWrapper>
         </FooterContainer>
     );

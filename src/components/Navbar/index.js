@@ -44,11 +44,11 @@ const Navbar = () => {
                     />
                 </MobileIcon>
                 <NavItems>
-                    <NavLink href="#about">About</NavLink>
+                    <NavLink href="#about">Tentang</NavLink>
                     <NavLink href="#skills">Skills</NavLink>
-                    <NavLink href="#experience">Experience</NavLink>
+                    <NavLink href="#experience">Pengalaman</NavLink>
                     <NavLink href="#projects">Projects</NavLink>
-                    <NavLink href="#education">Education</NavLink>
+                    {/* <NavLink href="#education">Edukasi</NavLink> */}
                 </NavItems>
                 <ButtonContainer>
                     <GitHubButton href={Bio.github} target="_blank">
@@ -63,7 +63,7 @@ const Navbar = () => {
                                 setIsOpen(!isOpen);
                             }}
                         >
-                            About
+                            Tentang
                         </MobileLink>
                         <MobileLink
                             href="#skills"
@@ -79,7 +79,7 @@ const Navbar = () => {
                                 setIsOpen(!isOpen);
                             }}
                         >
-                            Experience
+                            Pengalaman
                         </MobileLink>
                         <MobileLink
                             href="#projects"
@@ -89,14 +89,14 @@ const Navbar = () => {
                         >
                             Projects
                         </MobileLink>
-                        <MobileLink
+                        {/* <MobileLink
                             href="#education"
                             onClick={() => {
                                 setIsOpen(!isOpen);
                             }}
                         >
-                            Education
-                        </MobileLink>
+                            Edukasi
+                        </MobileLink> */}
                         <GitHubButton
                             style={{
                                 padding: '10px 16px',
@@ -107,7 +107,7 @@ const Navbar = () => {
                             href={Bio.github}
                             target="_blank"
                         >
-                            Github Profile
+                            Profile Github
                         </GitHubButton>
                     </MobileMenu>
                 )}
