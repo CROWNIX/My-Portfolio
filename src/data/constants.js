@@ -14,8 +14,10 @@ import Codeigniter from '../images/skills/codeigniter.svg';
 import Postgresql from '../images/skills/postgresql.svg';
 import Xampp from '../images/skills/xampp.svg';
 import Kafka from '../images/skills/kafka.svg';
-import Aerotrans from '../images/experiences/aerotrans.jpg';
+import Redis from '../images/skills/redis.svg';
+import Docker from '../images/skills/docker-4.svg';
 import Scm from '../images/experiences/scm.png';
+import JasanyaLogo from '../images/experiences/jasanya.png';
 import Elearning from '../images/projects/e-learning.png';
 import Jasanya from '../images/projects/jasanya.png';
 import Mahesa from '../images/projects/mahesa.png';
@@ -28,7 +30,8 @@ import DueIt from '../images/projects/due-it.png';
 export const Bio = {
     name: 'Rahmat Fauzi',
     roles: ['Full Stack Developer', 'Freelancer'],
-    description:'Saya adalah lulusan Program Studi Sistem Informasi dari Universitas Bina Sarana Informatika yang memiliki minat dan keahlian di bidang programming, khususnya dalam pengembangan web. Saya memiliki pengalaman magang sebagai Backend Developer di PT Surya Citra Media selama 5 bulan serta pengalaman freelance sebagai Fullstack Web Developer di Jasanya.tech selama 3 tahun. Saya terbiasa bekerja dengan tim maupun secara mandiri, dan terus berusaha mengembangkan kemampuan teknis serta soft skill dalam dunia teknologi informasi.',
+    description:
+        'Saya adalah lulusan Program Studi Sistem Informasi dari Universitas Bina Sarana Informatika yang memiliki minat dan keahlian di bidang programming, khususnya dalam pengembangan web. Saya memiliki pengalaman magang sebagai Backend Developer di PT Surya Citra Media selama 5 bulan serta pengalaman freelance sebagai Fullstack Web Developer di Jasanya.tech selama 3 tahun. Saya terbiasa bekerja dengan tim maupun secara mandiri, dan terus berusaha mengembangkan kemampuan teknis serta soft skill dalam dunia teknologi informasi.',
     github: 'https://github.com/CROWNIX',
     resume: 'https://drive.google.com/file/d/158kqn0mn6i3gIj6gIbZwScQmleJO1eZ3/view?usp=sharing',
     linkedin: 'https://www.linkedin.com/in/rahmat-fauzi-widianto/',
@@ -113,6 +116,14 @@ export const skills = [
                 name: 'Kafka',
                 image: Kafka,
             },
+            {
+                name: 'Redis',
+                image: Redis,
+            },
+            {
+                name: 'Docker',
+                image: Docker,
+            },
         ],
     },
 ];
@@ -120,16 +131,8 @@ export const skills = [
 export const experiences = [
     {
         id: 0,
-        img: Aerotrans,
-        role: 'It Support Intern',
-        company: 'PT. Aerotrans Services Indonesia',
-        date: 'February 2019 - April 2019',
-        skills: ['Mengatasi Troubleshoot User'],
-    },
-    {
-        id: 1,
         img: Scm,
-        role: 'Backend Developer Intern',
+        role: 'Backend Developer (intern)',
         company: 'PT. Surya Citra Media, Tbk',
         date: 'August 2023 - December 2023',
         skills: [
@@ -138,7 +141,23 @@ export const experiences = [
             'Mengembangkan fitur baru dan melakukan penyesuaian pada modul yang sudah ada.',
             'Meningkatkan performa website serta menerapkan prinsip Clean Architecture untuk kode yang lebih terstruktur.',
             'Bekerja dengan Laravel dan Vue.js, menggunakan REST API maupun pendekatan tanpa API sesuai kebutuhan sistem.',
-            'Mengelola basis data menggunakan MySQL dan PostgreSQL.'
+            'Mengelola basis data menggunakan MySQL dan PostgreSQL.',
+        ],
+    },
+    {
+        id: 1,
+        img: JasanyaLogo,
+        role: 'Fullstack Web Developer (freelance)',
+        company: 'PT. Jasanya Technology Solutions',
+        date: 'August 2021 - present',
+        skills: [
+            'Mengembangkan aplikasi web sebagai Full Stack Developer, menangani frontend maupun backend sesuai kebutuhan proyek.',
+            'Berpengalaman menggunakan Laravel, CodeIgniter, Golang, NodeJs, JavaScript, dengan basis data MySQL dan PostgreSQL.',
+            'Mengimplementasikan dan mengintegrasikan REST API maupun pengembangan tanpa API sesuai arsitektur sistem.',
+            'Berkolaborasi dengan tim UI/UX untuk memastikan desain antarmuka dan pengalaman pengguna yang optimal.',
+            'Menangani proyek berbasis permintaan klien dan mengembangkan produk internal berupa aplikasi dan website.',
+            'Mengelola proses pengembangan menggunakan Trello dengan metode Scrum, termasuk perencanaan fitur, penentuan prioritas, dan pengaturan tenggat waktu.',
+            'Sesekali menjalankan peran Project Manager, mengoordinasikan tim developer untuk memastikan penyelesaian proyek sesuai target.',
         ],
     },
 ];
@@ -159,7 +178,8 @@ export const projects = [
     {
         id: 0,
         title: 'Nutri COunter',
-        description: "Website responsive untuk menghitung kebutuhan nutrisi harian berdasarkan input user (usia, berat badan, aktivitas). Dikerjakan sebagai freelance project untuk client internasional (Korea)",
+        description:
+            'Website responsive untuk menghitung kebutuhan nutrisi harian berdasarkan input user (usia, berat badan, aktivitas). Dikerjakan sebagai freelance project untuk client internasional (Korea)',
         image: Nutri,
         tags: ['Laravel', 'Mysql'],
         category: 'web app',
@@ -169,7 +189,8 @@ export const projects = [
     {
         id: 1,
         title: 'Wastra',
-        description: "Website manajemen bisnis untuk perusahaan Wastra yang bergerak di bidang penyediaan dan pemasangan interior (curtain, vitrage, rail). Sistem ini membantu perusahaan dalam mengelola proses bisnis mulai dari penawaran harga, pemesanan barang, hingga instalasi ke client.",
+        description:
+            'Website manajemen bisnis untuk perusahaan Wastra yang bergerak di bidang penyediaan dan pemasangan interior (curtain, vitrage, rail). Sistem ini membantu perusahaan dalam mengelola proses bisnis mulai dari penawaran harga, pemesanan barang, hingga instalasi ke client.',
         image: Wastra,
         tags: ['Laravel', 'Mysql'],
         category: 'web app',
@@ -179,7 +200,8 @@ export const projects = [
     {
         id: 2,
         title: 'DueIt - Jasanya Aturuang',
-        description: "Aplikasi manajemen keuangan berbasis web yang dikembangkan oleh tim sebagai project pembelajaran dengan pendekatan microservice. Sistem ini digunakan untuk mengelola pengeluaran harian dan bulanan, kategori pengeluaran, serta menyajikan laporan anggaran.",
+        description:
+            'Aplikasi manajemen keuangan berbasis web yang dikembangkan oleh tim sebagai project pembelajaran dengan pendekatan microservice. Sistem ini digunakan untuk mengelola pengeluaran harian dan bulanan, kategori pengeluaran, serta menyajikan laporan anggaran.',
         image: DueIt,
         tags: ['Golang', 'Kafka', 'PostgreSQL', 'Redis', 'Microservice Architecture'],
         category: 'web app',
@@ -189,7 +211,8 @@ export const projects = [
     {
         id: 3,
         title: 'Event Organizer',
-        description: "website company profile portofolio perusahaan PT. Kreasindo Jaya Mahesa. Sebuah perusahaan yang bergerak dibidang jasa penyedia layanan acara atau disebut event organizer",
+        description:
+            'website company profile portofolio perusahaan PT. Kreasindo Jaya Mahesa. Sebuah perusahaan yang bergerak dibidang jasa penyedia layanan acara atau disebut event organizer',
         image: Mahesa,
         tags: ['Laravel', 'Mysql'],
         category: 'web app',
@@ -199,42 +222,46 @@ export const projects = [
     {
         id: 4,
         title: 'NPHLAN',
-        description: "website company profile portofolio perusahaan PT. Kreasindo Jaya Mahesa. Sebuah perusahaan yang bergerak dibidang jasa penyedia layanan acara atau disebut event organizer",
+        description:
+            'website company profile portofolio perusahaan PT. Kreasindo Jaya Mahesa. Sebuah perusahaan yang bergerak dibidang jasa penyedia layanan acara atau disebut event organizer',
         image: Nphlan,
         tags: ['Laravel', 'Mysql'],
         category: 'web app',
-        github: 'https://github.com/jasanya-tech/web-eventorganizer',
-        webapp: 'http://mahesacreative.com/',
+        github: 'https://github.com/jasanya-tech/NPHLAN',
+        webapp: 'https://github.com/jasanya-tech/NPHLAN',
     },
     {
         id: 5,
         title: 'Jasanya Tech',
-        description: "Website company profile sekaligus platform freelance untuk mempertemukan freelancer dengan client, mencakup layanan desain dan pengembangan aplikasi.",
+        description:
+            'Website company profile sekaligus platform freelance untuk mempertemukan freelancer dengan client, mencakup layanan desain dan pengembangan aplikasi.',
         image: Jasanya,
         tags: ['Laravel', 'Mysql'],
         category: 'web app',
-        github: 'https://github.com/jasanya-tech/web-eventorganizer',
+        github: 'https://github.com/PRODUCT-JASANYA-TECKNOLOGY/Web-JasanyaTech',
         webapp: 'https://jasanyatech.id/',
     },
     {
         id: 6,
         title: 'E-learning',
-        description: "Sistem informasi e-learning berbasis web untuk mengelola materi, tugas, absensi, penilaian, dan generate raport siswa.",
+        description:
+            'Sistem informasi e-learning berbasis web untuk mengelola materi, tugas, absensi, penilaian, dan generate raport siswa.',
         image: Elearning,
         tags: ['Laravel', 'Mysql'],
         category: 'web app',
-        github: 'https://github.com/jasanya-tech/web-eventorganizer',
-        webapp: 'https://jasanyatech.id/',
+        github: 'https://github.com/PRODUCT-JASANYA-TECKNOLOGY/E-Learning',
+        webapp: 'https://elearning.jasanyatech.id',
     },
     {
         id: 7,
         title: 'Outlet Pintar',
-        description: "Website pemesanan makanan dan minuman untuk café berbasis QR Code. User dapat memindai QR Code yang tersedia di meja untuk menampilkan menu digital, melakukan pemesanan, hingga pembayaran online melalui integrasi Midtrans. Sistem ini juga dilengkapi dengan dashboard admin untuk mengelola menu, transaksi, dan laporan penjualan",
+        description:
+            'Website pemesanan makanan dan minuman untuk café berbasis QR Code. User dapat memindai QR Code yang tersedia di meja untuk menampilkan menu digital, melakukan pemesanan, hingga pembayaran online melalui integrasi Midtrans. Sistem ini juga dilengkapi dengan dashboard admin untuk mengelola menu, transaksi, dan laporan penjualan',
         image: Outlet,
         tags: ['Golang', 'Laravel Filament', 'Vue JS', 'Mysql', 'Midtrans'],
         category: 'web app',
-        github: 'https://github.com/jasanya-tech/web-eventorganizer',
-        webapp: 'https://jasanyatech.id/',
+        github: 'https://github.com/PRODUCT-JASANYA-TECKNOLOGY/OP-Backend-API',
+        webapp: 'https://dev-outletpintar.jasanyatech.id/',
     },
 ];
 
