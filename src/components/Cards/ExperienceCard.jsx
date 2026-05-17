@@ -105,7 +105,7 @@ const Company = styled.div`
     color: ${({ theme }) => theme.text_secondary + 99};
     @media only screen and (max-width: 768px) {
         font-size: 12px;
-    }
+    }Date
 `;
 
 const Date = styled.div`
