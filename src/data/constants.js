@@ -18,6 +18,7 @@ import Redis from '../images/skills/redis.svg';
 import Docker from '../images/skills/docker-4.svg';
 import Scm from '../images/experiences/scm.png';
 import JasanyaLogo from '../images/experiences/jasanya.png';
+import QteraLogo from '../images/experiences/qtera.png';
 import Elearning from '../images/projects/e-learning.png';
 import Jasanya from '../images/projects/jasanya.png';
 import Mahesa from '../images/projects/mahesa.png';
@@ -158,6 +159,18 @@ export const experiences = [
             'Menangani proyek berbasis permintaan klien dan mengembangkan produk internal berupa aplikasi dan website.',
             'Mengelola proses pengembangan menggunakan Trello dengan metode Scrum, termasuk perencanaan fitur, penentuan prioritas, dan pengaturan tenggat waktu.',
             'Sesekali menjalankan peran Project Manager, mengoordinasikan tim developer untuk memastikan penyelesaian proyek sesuai target.',
+        ],
+    },
+     {
+        id: 2,
+        img: QteraLogo,
+        role: 'Backend Developer (intern)',
+        company: 'PT. Qtera Mandiri',
+        date: 'November 2025 - April 2026',
+        skills: [
+            'Mengembangkan sistem management asset Tag Samurai menggunakan Go, PostgreSQL, MongoDB, dan Temporal',
+            'Memperbaiki bug dan melakukan troubleshooting berdasarkan temuan dari tim QA',
+            'Membantu pembuatan automation testing untuk mendukung proses QA',
         ],
     },
 ];
