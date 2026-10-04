@@ -66,14 +66,21 @@ export const ToggleButtonGroup = styled.div`
   }
 `;
 
-export const ToggleButton = styled.div`
+export const ToggleButton = styled.button`
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  transition: background 300ms ease, color 300ms ease, box-shadow 300ms ease;
   padding: 8px 18px;
   border-radius: 6px;
   cursor: pointer;
-  ${({ active, theme }) =>
-    active &&
+  ${({ $active, theme }) =>
+    $active &&
     `
-    background: ${theme.primary + 20};
+    background: ${theme.primary + 40};
+    color: ${theme.white};
+    box-shadow: inset 0 0 16px ${theme.primary + 20};
     `}
   &:hover {
     background: ${({ theme }) => theme.primary + 8};
@@ -91,7 +98,7 @@ export const Divider = styled.div`
 export const CardContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   gap: 28px;
   flex-wrap: wrap;
   // display: grid;

@@ -1,5 +1,6 @@
 import { CloseRounded, GitHub, LinkedIn } from '@mui/icons-material';
-import { Modal } from '@mui/material';
+import { Fade, Modal } from '@mui/material';
+import { useMotion } from '../Motion';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -11,7 +12,7 @@ const Container = styled.div`
     left: 0;
     background-color: #000000a7;
     display: flex;
-    align-items: top;
+    align-items: flex-start;
     justify-content: center;
     overflow-y: scroll;
     transition: all 0.5s ease;
@@ -170,26 +171,24 @@ const Button = styled.a`
     }
 `;
 
-const index = ({ openModal, setOpenModal }) => {
+const ProjectDetails = ({ openModal, setOpenModal }) => {
+    const { reducedMotion } = useMotion();
     const project = openModal?.project;
+    const close = () => setOpenModal({ state: false, project });
+    if (!project) return null;
     return (
-        <Modal open={true} onClose={() => setOpenModal({ state: false, project: null })}>
-            <Container>
-                <Wrapper>
-                    <CloseRounded
-                        style={{
-                            position: 'absolute',
-                            top: '10px',
-                            right: '20px',
-                            cursor: 'pointer',
-                        }}
-                        onClick={() => setOpenModal({ state: false, project: null })}
-                    />
-                    <Image src={project?.image} />
-                    <Title>{project?.title}</Title>
+        <Modal open={openModal.state} onClose={close} closeAfterTransition>
+            <Fade in={openModal.state} timeout={reducedMotion ? 0 : 250}>
+            <Container onClick={event => { if (event.target === event.currentTarget) close(); }}>
+                <Wrapper className="project-dialog" role="dialog" aria-modal="true" aria-labelledby="project-title" tabIndex={-1}>
+                    <button type="button" className="dialog-close" aria-label="Close project details" onClick={close}>
+                        <CloseRounded />
+                    </button>
+                    <Image src={project?.image} alt={project.title} />
+                    <Title id="project-title">{project?.title}</Title>
                     <Tags>
                         {project?.tags.map((tag) => (
-                            <Tag>{tag}</Tag>
+                            <Tag key={tag}>{tag}</Tag>
                         ))}
                     </Tags>
                     <Desc>{project?.description}</Desc>
@@ -198,8 +197,8 @@ const index = ({ openModal, setOpenModal }) => {
                             <Label>Members</Label>
                             <Members>
                                 {project?.member.map((member) => (
-                                    <Member>
-                                        <MemberImage src={member.img} />
+                                    <Member key={member.name}>
+                                        <MemberImage src={member.img} alt={member.name} />
                                         <MemberName>{member.name}</MemberName>
                                         <a
                                             href={member.github}
@@ -230,8 +229,9 @@ const index = ({ openModal, setOpenModal }) => {
                     </ButtonGroup>
                 </Wrapper>
             </Container>
+            </Fade>
         </Modal>
     );
 };
 
-export default index;
+export default ProjectDetails;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Reveal } from '../Motion';
 import styled from 'styled-components';
 
 const Document = styled.img`
@@ -34,7 +35,9 @@ const Span = styled.span`
 `;
 
 const Card = styled.div`
-    width: 650px;
+    width: 100%;
+    max-width: 650px;
+    background: ${({ theme }) => theme.card};
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     padding: 12px 16px;
@@ -52,7 +55,7 @@ const Card = styled.div`
     @media only screen and (max-width: 768px) {
         padding: 10px;
         gap: 8px;
-        width: 300px;
+        width: 100%;
     }
 
     &:hover ${Document} {
@@ -105,7 +108,7 @@ const Company = styled.div`
     color: ${({ theme }) => theme.text_secondary + 99};
     @media only screen and (max-width: 768px) {
         font-size: 12px;
-    }Date
+    }
 `;
 
 const Date = styled.div`
@@ -126,9 +129,9 @@ const Skills = styled.div`
 
 const ExperienceCard = ({ experience }) => {
     return (
-        <Card>
+        <Reveal as={Card} tilt>
             <Top>
-                <Image src={experience.img} height={50} width={50} />
+                <Image alt={experience.company} loading="lazy" src={experience.img} height={50} width={50} />
                 <Body>
                     <Role>{experience.role}</Role>
                     <Company>{experience.company}</Company>
@@ -140,7 +143,7 @@ const ExperienceCard = ({ experience }) => {
                     <Skills>
                         <ul>
                             {experience.skills.map((skill, index) => (
-                                <li>{skill}</li>
+                                <li key={index}>{skill}</li>
                             ))}
                         </ul>
                     </Skills>
@@ -151,7 +154,7 @@ const ExperienceCard = ({ experience }) => {
                     <Document src={experience.doc} />
                 </a>
             )}
-        </Card>
+        </Reveal>
     );
 };
 

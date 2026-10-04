@@ -1,0 +1,114 @@
+.lanz-widget {
+  position: fixed; right: max(24px, env(safe-area-inset-right)); bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 100; color: #f2f3f4; font-size: 14px;
+}
+.lanz-widget button, .lanz-widget textarea { font: inherit; }
+.lanz-launcher {
+  display: flex; align-items: center; gap: 4px; position: relative; margin-left: auto;
+  min-height: 68px; padding: 4px 18px 4px 4px; border: 1px solid #ad7bf967; border-radius: 23px;
+  color: #f2f3f4; background: linear-gradient(125deg, #322342, #211d30 75%);
+  box-shadow: 0 12px 40px #08061066, inset 0 1px 0 #d7b6ff12; cursor: pointer;
+  transition: transform 300ms var(--motion-ease), border-color 300ms ease, box-shadow 300ms ease;
+}
+.lanz-launcher:hover { transform: translateY(-4px); border-color: #bd91ff; box-shadow: 0 12px 40px #09061388, 0 0 26px #854ce629; }
+.is-open .lanz-launcher { visibility: hidden; pointer-events: none; }
+.lanz-launcher-mascot { display: block; width: 64px; height: 60px; }
+.lanz-launcher-mascot .lanz-mascot { width: 76px; height: 76px; margin: -10px -6px; }
+.lanz-launcher-copy { display: flex; flex-direction: column; text-align: left; gap: 3px; }
+.lanz-launcher-copy strong { font-size: 13px; font-weight: 600; }
+.lanz-launcher-copy > span { display: flex; align-items: center; gap: 8px; font-size: 10px; color: #b9a9cf; }
+.lanz-launcher-close { margin-left: 8px; font-size: 18px; }
+.lanz-panel {
+  position: absolute; right: 0; bottom: 0; width: min(390px, calc(100vw - 32px));
+  height: min(590px, calc(100dvh - 48px)); display: flex; flex-direction: column;
+  background: #1c1b28; border: 1px solid #a77ce63d; border-radius: 24px; overflow: hidden;
+  box-shadow: 0 24px 90px #0009, 0 0 40px #854ce610;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translateY(18px) scale(.96); transform-origin: bottom right;
+  transition: opacity 220ms ease, transform 350ms var(--motion-ease), visibility 220ms;
+}
+.is-open .lanz-panel { opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
+.lanz-header { display: flex; align-items: center; gap: 10px; padding: 16px 18px; border-bottom: 1px solid #ffffff0a; background: linear-gradient(120deg, #34244088, transparent); flex-shrink: 0; }
+.lanz-avatar { width: 44px; height: 44px; border: 1px solid #a77ce638; border-radius: 15px; background: #854ce616; }
+.lanz-avatar .lanz-mascot { width: 48px; height: 48px; margin: -3px; }
+.lanz-identity { flex: 1; }
+.lanz-identity h2 { font-size: 17px; font-weight: 600; display: flex; align-items: center; gap: 9px; }
+.lanz-identity p { font-size: 10px; margin-top: 2px; color: #afa4bd; }
+.lanz-demo-badge { font-size: 8px; letter-spacing: 1px; font-weight: 500; padding: 3px 6px; color: #ccb1fa; background: #854ce61c; border: 1px solid #854ce638; border-radius: 5px; }
+.lanz-icon-button { width: 32px; height: 32px; display: grid; place-items: center; border: 0; border-radius: 10px; background: transparent; color: #bcb3c9; cursor: pointer; transition: background 200ms ease, color 200ms ease; }
+.lanz-icon-button:hover { background: #854ce625; color: white; }
+.lanz-icon-button svg { width: 19px; height: 19px; }
+.lanz-conversation { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 20px; scrollbar-width: thin; scrollbar-color: #6d4b94 transparent; }
+.lanz-welcome { text-align: center; padding: 0 0 4px; }
+.lanz-mascot-stage { position: relative; width: 154px; height: 154px; margin: -8px auto 0; isolation: isolate; }
+.lanz-mascot-stage::before { content: ''; position: absolute; inset: 10px; background: radial-gradient(circle, #854ce62c, transparent 70%); border: 1px solid #b783f518; border-radius: 50%; z-index: -1; }
+.lanz-mascot-stage::after { content: ''; position: absolute; inset: 0; border: 1px dashed #b783f511; border-radius: 50%; z-index: -1; }
+.lanz-mascot { width: 100%; height: 100%; overflow: visible; }
+.lanz-eyebrow { display: block; color: #9f84bd; letter-spacing: 2px; font-size: 8px; margin: 8px 0; }
+.lanz-welcome h3 { font-size: 25px; font-weight: 600; letter-spacing: -.7px; }
+.lanz-welcome h3 span { color: #c29af7; }
+.lanz-welcome p { font-size: 11px; line-height: 1.9; margin-top: 8px; color: #aaa3b6; }
+.lanz-welcome-divider { display: block; width: 34px; height: 2px; margin: 18px auto 0; background: linear-gradient(90deg, #854ce6, #c9a7ff); border-radius: 3px; }
+.lanz-greeting, .lanz-message { font-size: 12px; line-height: 1.8; border-radius: 14px; padding: 12px 14px; overflow-wrap: anywhere; }
+.lanz-greeting { color: #c9c0d6; background: #ffffff04; border: 1px solid #ffffff08; margin-bottom: 16px; }
+.lanz-messages { display: flex; flex-direction: column; gap: 14px; }
+.lanz-message { max-width: 92%; animation: lanz-message-in 300ms var(--motion-ease) both; }
+.lanz-message p { white-space: pre-wrap; }
+.lanz-message-user { align-self: flex-end; background: linear-gradient(135deg, #7743c7, #6436aa); border-bottom-right-radius: 4px; }
+.lanz-message-assistant { align-self: flex-start; background: #262233; border: 1px solid #b783f51b; border-bottom-left-radius: 4px; color: #ddd5e8; }
+.lanz-message-author { display: block; margin-bottom: 4px; font-size: 9px; opacity: .65; }
+.lanz-message a { display: inline-flex; align-items: center; gap: 4px; margin-top: 10px; color: #caabff; text-decoration: none; font-size: 11px; }
+.lanz-message a:hover { text-decoration: underline; }
+.lanz-typing { display: flex; align-items: center; gap: 8px; color: #a99abf; font-size: 10px; margin: 16px 0 0; }
+.lanz-typing-dots { display: flex; gap: 3px; }
+.lanz-typing-dots i { width: 4px; height: 4px; border-radius: 50%; background: #bb91f5; animation: lanz-dot 1s ease-in-out infinite; }
+.lanz-typing-dots i:nth-child(2) { animation-delay: 150ms; }
+.lanz-typing-dots i:nth-child(3) { animation-delay: 300ms; }
+.lanz-compose { padding: 12px 16px 14px; flex-shrink: 0; background: #1c1b28; border-top: 1px solid #ffffff06; }
+.lanz-prompts { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.lanz-prompts button { display: flex; align-items: center; gap: 4px; padding: 7px 8px; border: 1px solid #9c73cb40; border-radius: 9px; background: #854ce609; color: #c8b7df; font-size: 9px; cursor: pointer; transition: background 200ms ease, border-color 200ms ease; }
+.lanz-prompts button:hover:enabled { background: #854ce625; border-color: #b591e9; }
+.lanz-prompts button:disabled { opacity: .45; cursor: default; }
+.lanz-input-box { display: flex; align-items: center; gap: 8px; padding: 9px 9px 9px 12px; background: #14131f; border: 1px solid #ffffff12; border-radius: 13px; transition: border-color 200ms ease, box-shadow 200ms ease; }
+.lanz-input-box:focus-within { border-color: #a374e4; box-shadow: 0 0 0 3px #854ce618; }
+.lanz-input-box textarea { display: block; width: 100%; min-width: 0; height: 38px; max-height: 90px; resize: none; padding: 9px 0; color: #f2f3f4; background: transparent; border: 0; outline: 0; font-size: 11px; line-height: 20px; scrollbar-width: thin; }
+.lanz-input-box textarea::placeholder { color: #797286; }
+.lanz-send { flex-shrink: 0; display: grid; place-items: center; width: 34px; height: 34px; border: 0; border-radius: 10px; color: white; background: linear-gradient(140deg, #a370ec, #7542cb); cursor: pointer; transition: opacity 200ms ease, transform 200ms ease; }
+.lanz-send:hover:enabled { transform: translateY(-2px); }
+.lanz-send:disabled { opacity: .35; cursor: default; }
+.lanz-disclaimer { font-size: 8px; color: #8d849e; text-align: center; margin-top: 10px; }
+.lanz-disclaimer span { padding: 0 3px; }
+.lanz-float { animation: lanz-float 4s ease-in-out infinite; }
+.lanz-eyes { transform-box: fill-box; transform-origin: center; animation: lanz-blink 5.8s ease-in-out infinite; }
+.lanz-shadow { transform-origin: 80px 144px; animation: lanz-shadow 4s ease-in-out infinite; }
+.lanz-arm-right { transform-origin: 116px 107px; }
+.is-waving .lanz-arm-right { animation: lanz-wave 5s ease-in-out infinite; }
+.lanz-spark { transform-box: fill-box; transform-origin: center; animation: lanz-spark 3s ease-in-out infinite; }
+.lanz-spark-two { animation-delay: 1.5s; }
+.is-thinking .lanz-antenna { animation: lanz-spark 900ms ease-in-out infinite; transform-origin: 80px 40px; }
+.lanz-panel[aria-hidden="true"] *, .is-open .lanz-launcher .lanz-mascot * { animation-play-state: paused; }
+@keyframes lanz-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes lanz-shadow { 50% { transform: scaleX(.8); opacity: .1; } }
+@keyframes lanz-blink { 0%, 42%, 46%, 100% { transform: scaleY(1); } 44% { transform: scaleY(.1); } }
+@keyframes lanz-wave { 0%, 15%, 40%, 100% { transform: rotate(0); } 20%, 30% { transform: rotate(-24deg); } 25%, 35% { transform: rotate(8deg); } }
+@keyframes lanz-spark { 0%, 100% { opacity: .35; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.1); } }
+@keyframes lanz-dot { 50% { transform: translateY(-3px); opacity: .4; } }
+@keyframes lanz-message-in { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
+@media (max-width: 600px) {
+  .lanz-widget { right: max(12px, env(safe-area-inset-right)); bottom: max(12px, env(safe-area-inset-bottom)); }
+  .lanz-panel { width: min(390px, calc(100vw - 24px)); height: min(590px, calc(100dvh - 24px)); border-radius: 20px; }
+  .lanz-launcher { min-height: 58px; padding-right: 13px; border-radius: 20px; }
+  .lanz-launcher-mascot { width: 52px; height: 48px; }
+  .lanz-launcher-mascot .lanz-mascot { width: 66px; height: 66px; }
+  .lanz-launcher-copy strong { font-size: 12px; }
+  .lanz-input-box textarea { font-size: 16px; }
+  .lanz-input-box textarea::placeholder { font-size: 12px; }
+}
+@media (max-height: 540px) {
+  .lanz-panel { bottom: 0; height: calc(100dvh - 24px); }
+  .lanz-mascot-stage { width: 94px; height: 94px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lanz-widget *, .lanz-widget *::before, .lanz-widget *::after { animation: none !important; transition: none !important; }
+  .lanz-launcher:hover, .lanz-send:hover:enabled { transform: none; }
+}

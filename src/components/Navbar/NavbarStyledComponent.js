@@ -2,7 +2,11 @@ import { Link as LinkR } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Nav = styled.div`
-    background-color: ${({ theme }) => theme.card_light};
+    background-color: ${({ theme, $scrolled }) => $scrolled ? theme.card_light + 'e8' : theme.card_light};
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid ${({ $scrolled }) => $scrolled ? '#854ce630' : 'transparent'};
+    box-shadow: ${({ $scrolled }) => $scrolled ? '0 8px 32px #08081033' : 'none'};
+    transition: background-color 400ms ease, border-color 400ms ease, box-shadow 400ms ease;
     height: 80px;
     display: flex;
     align-items: center;
@@ -11,9 +15,7 @@ export const Nav = styled.div`
     position: sticky;
     top: 0;
     z-index: 10;
-    @media (max-width: 960px) {
-        trastion: 0.8s all ease;
-    }
+
 `;
 export const NavbarContainer = styled.div`
     display: flex;
@@ -57,6 +59,23 @@ export const NavItems = styled.ul`
 `;
 
 export const NavLink = styled.a`
+    position: relative;
+    padding: 8px 0;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        background: ${({ theme }) => theme.primary};
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 350ms cubic-bezier(.22, 1, .36, 1);
+    }
+    &:hover::after, &[aria-current]::after { transform: scaleX(1); }
+    &[aria-current] { color: #b893ff; }
     color: ${({ theme }) => theme.text_primary};
     font-weight: 500;
     cursor: pointer;
@@ -106,14 +125,17 @@ export const ButtonContainer = styled.div`
     }
 `;
 
-export const MobileIcon = styled.div`
+export const MobileIcon = styled.button`
+    border: 0;
+    background: transparent;
+    padding: 8px;
+    line-height: 1;
     display: none;
     @media screen and (max-width: 768px) {
         display: block;
         position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
+        top: 18px;
+        right: 16px;
         font-size: 1.5rem;
         cursor: pointer;
         color: ${({ theme }) => theme.text_primary};
@@ -130,13 +152,17 @@ export const MobileMenu = styled.div`
     right: 0;
     width: 100%;
     padding: 12px 40px 24px 40px;
-    background: ${({ theme }) => theme.card_light + 99};
-    transition: all 0.6s ease-in-out;
-    transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-100%)')};
+    background: ${({ theme }) => theme.card_light + "f5"};
+    backdrop-filter: blur(20px);
+    transition: opacity 250ms ease, transform 350ms cubic-bezier(.22, 1, .36, 1), visibility 250ms;
+    transform: ${({ $isOpen }) => ($isOpen ? 'translateY(0)' : 'translateY(-12px)')};
+    visibility: ${({ $isOpen }) => ($isOpen ? 'visible' : 'hidden')};
+    pointer-events: ${({ $isOpen }) => ($isOpen ? 'auto' : 'none')};
+    @media (min-width: 769px) { display: none; }
     border-radius: 0 0 20px 20px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
-    z-index: ${({ isOpen }) => (isOpen ? '1000' : '-1000')};
+    opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
+    z-index: 1000;
 `;
 
 export const MobileMenuItems = styled.ul`

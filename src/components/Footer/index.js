@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Reveal } from "../Motion";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { Bio } from "../../data/constants";
@@ -84,7 +85,7 @@ const Copyright = styled.p`
 function Footer() {
   return (
     <FooterContainer>
-      <FooterWrapper>
+      <Reveal as={FooterWrapper}>
         <Logo>Rahmat Fauzi</Logo>
         <Nav>
           <NavLink href="#about">About</NavLink>
@@ -94,15 +95,15 @@ function Footer() {
           {/* <NavLink href="#education">Education</NavLink> */}
         </Nav>
         <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.linkedin} target="display">
+          <SocialMediaIcon className="footer-social" aria-label="LinkedIn" href={Bio.linkedin} target="display">
             <LinkedInIcon />
           </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.insta} target="display">
+          <SocialMediaIcon className="footer-social" aria-label="Instagram" href={Bio.insta} target="display">
             <InstagramIcon />
           </SocialMediaIcon>
         </SocialMediaIcons>
         <Copyright>&copy; 2025 Rahmat Fauzi. All rights reserved.</Copyright>
-      </FooterWrapper>
+      </Reveal>
     </FooterContainer>
   );
 }

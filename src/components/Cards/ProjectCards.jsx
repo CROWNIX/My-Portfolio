@@ -1,4 +1,5 @@
 import React from "react";
+import { Reveal } from "../Motion";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -16,7 +17,8 @@ const Button = styled.button`
 `;
 const Card = styled.div`
   width: 330px;
-  height: 490px;
+  border: 1px solid #854ce625;
+  min-height: 490px;
   background-color: ${({ theme }) => theme.card};
   cursor: pointer;
   border-radius: 10px;
@@ -88,19 +90,23 @@ const Title = styled.div`
 const Description = styled.div`
   font-weight: 400;
   color: ${({ theme }) => theme.text_secondary + 99};
-  overflow: hidden;
   margin-top: 8px;
-  display: -webkit-box;
   max-width: 100%;
-  -webkit-line-clamp: 10;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
 `;
 
-const ProjectCards = ({ project, setOpenModal }) => {
+const ProjectCards = ({ project, setOpenModal, delay }) => {
   return (
-    <Card onClick={() => setOpenModal({ state: true, project: project })}>
-      <Image src={project.image} />
+    <Reveal as={Card} tilt delay={delay} className="project-card" role="button" tabIndex={0}
+      aria-label={project.title} aria-haspopup="dialog"
+      onKeyDown={event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          setOpenModal({ state: true, project });
+        }
+      }}
+      onClick={() => setOpenModal({ state: true, project })}>
+      <div className="project-image-frame"><Image className="project-image" src={project.image} alt={project.title} loading="lazy" /></div>
 
       <Details>
         <Title>{project.title}</Title>
@@ -109,9 +115,9 @@ const ProjectCards = ({ project, setOpenModal }) => {
             <Tag key={index}>{tag}</Tag>
           ))}
         </Tags>
-        <Description>{project.description}</Description>
+        <Description className="project-description">{project.description}</Description>
       </Details>
-    </Card>
+    </Reveal>
   );
 };
 

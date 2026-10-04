@@ -1,5 +1,6 @@
 
 import React from 'react'
+import { Reveal } from '../Motion';
 import styled from 'styled-components'
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -78,14 +79,14 @@ const index = () => {
     return (
         <Container id="experience">
             <Wrapper>
-                <Title>Experience</Title>
-                <Desc>
+                <Reveal as={Title} className="section-title">Experience</Reveal>
+                <Reveal as={Desc} delay={80}>
                     My work experience as a software engineer and working on different companies and projects.
-                </Desc>
+                </Reveal>
                 <TimelineSection>
-                    <Timeline>
+                    <Timeline sx={{ width: '100%', maxWidth: 740, px: { xs: 1, sm: 2 }, '& .MuiTimelineItem-root::before': { display: 'none' }, '& .MuiTimelineContent-root': { minWidth: 0 } }}>
                         {experiences.map((experience,index) => (
-                            <TimelineItem>
+                            <Reveal as={TimelineItem} className="experience-row" key={experience.id ?? index}>
                                 <TimelineSeparator>
                                     <TimelineDot variant="outlined" color="secondary" />
                                     {index !== experiences.length - 1 && <TimelineConnector style={{ background: '#854CE6' }} />}
@@ -93,7 +94,7 @@ const index = () => {
                                 <TimelineContent sx={{ py: '12px', px: 2 }}>
                                     <ExperienceCard experience={experience}/>
                                 </TimelineContent>
-                            </TimelineItem>
+                            </Reveal>
                         ))}
                     </Timeline>
 

@@ -12,6 +12,8 @@ import Experience from "./components/Experience";
 // removed unused imports: Contact, Education
 import ProjectDetails from "./components/ProjectDetails";
 import styled from "styled-components";
+import { MotionProvider } from "./components/Motion";
+import LanzChat from "./components/LanzChat";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -37,26 +39,23 @@ const Wrapper = styled.div`
 function App() {
   const darkMode = true;
   const [openModal, setOpenModal] = useState({ state: false, project: null });
-  console.log(openModal);
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Router>
-        <Navbar />
-        <Body>
-          <HeroSection />
-          <Wrapper>
-            <Skills />
-            <Experience />
-          </Wrapper>
-          <Projects openModal={openModal} setOpenModal={setOpenModal} />
-          {/* <Wrapper>
-                        <Education />
-                    </Wrapper> */}
-          <Footer />
-          {openModal.state && (
+        <MotionProvider>
+          <Navbar />
+          <Body>
+            <HeroSection />
+            <Wrapper>
+              <Skills />
+              <Experience />
+            </Wrapper>
+            <Projects setOpenModal={setOpenModal} />
+            <Footer />
             <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
-          )}
-        </Body>
+          </Body>
+          <LanzChat />
+        </MotionProvider>
       </Router>
     </ThemeProvider>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Reveal } from '../Motion';
 import { useState } from 'react';
 import {
     Container,
@@ -13,56 +14,30 @@ import {
 import ProjectCard from '../Cards/ProjectCards';
 import { projects } from '../../data/constants';
 
-const Projects = ({ openModal, setOpenModal }) => {
+const Projects = ({ setOpenModal }) => {
     const [toggle, setToggle] = useState('all');
     return (
         <Container id="projects">
             <Wrapper>
-                <Title>Projects</Title>
-                <Desc>
+                <Reveal as={Title} className="section-title">Projects</Reveal>
+                <Reveal as={Desc} delay={80}>
                     I have worked on a wide range of projects. From web apps to android apps. Here
                     are some of my projects.
-                </Desc>
-                <ToggleButtonGroup>
-                    {toggle === 'all' ? (
-                        <ToggleButton active value="all" onClick={() => setToggle('all')}>
-                            All
-                        </ToggleButton>
-                    ) : (
-                        <ToggleButton value="all" onClick={() => setToggle('all')}>
-                            All
-                        </ToggleButton>
-                    )}
+                </Reveal>
+                <Reveal as={ToggleButtonGroup} delay={160} role="group" aria-label="Project category">
+                    <ToggleButton $active={toggle === 'all'} aria-pressed={toggle === 'all'} onClick={() => setToggle('all')}>
+                        All
+                    </ToggleButton>
                     <Divider />
-                    {toggle === 'web app' ? (
-                        <ToggleButton active value="web app" onClick={() => setToggle('web app')}>
-                            WEB APP'S
-                        </ToggleButton>
-                    ) : (
-                        <ToggleButton value="web app" onClick={() => setToggle('web app')}>
-                            WEB APP'S
-                        </ToggleButton>
-                    )}
-                </ToggleButtonGroup>
-                <CardContainer>
-                    {toggle === 'all' &&
-                        projects.map((project) => (
-                            <ProjectCard
-                                project={project}
-                                openModal={openModal}
-                                setOpenModal={setOpenModal}
-                            />
-                        ))}
-                    {projects
-                        .filter((item) => item.category === toggle)
-                        .map((project) => (
-                            <ProjectCard
-                                project={project}
-                                openModal={openModal}
-                                setOpenModal={setOpenModal}
-                            />
-                        ))}
-                </CardContainer>
+                    <ToggleButton $active={toggle === 'web app'} aria-pressed={toggle === 'web app'} onClick={() => setToggle('web app')}>
+                        WEB APP'S
+                    </ToggleButton>
+                </Reveal>
+                <Reveal as={CardContainer} className="project-grid" key={toggle}>
+                    {projects.filter(project => toggle === 'all' || project.category === toggle).map((project, index) => (
+                        <ProjectCard key={project.id} project={project} delay={(index % 3) * 90} setOpenModal={setOpenModal} />
+                    ))}
+                </Reveal>
             </Wrapper>
         </Container>
     );

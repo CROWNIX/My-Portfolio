@@ -1,4 +1,5 @@
 import React from 'react';
+import { Reveal } from '../Motion';
 import styled from 'styled-components';
 import { skills } from '../../data/constants';
 
@@ -110,20 +111,20 @@ const Skills = () => {
     return (
         <Container id="skills">
             <Wrapper>
-                <Title>Skills</Title>
+                <Reveal as={Title} className="section-title">Skills</Reveal>
                 <SkillsContainer>
-                    {skills.map((skill) => (
-                        <Skill>
+                    {skills.map((skill, index) => (
+                        <Reveal as={Skill} tilt key={skill.title} delay={(index % 2) * 100}>
                             <SkillTitle>{skill.title}</SkillTitle>
                             <SkillList>
                                 {skill.skills.map((item) => (
-                                    <SkillItem>
-                                        <SkillImage src={item.image} />
+                                    <SkillItem className="skill-chip" key={item.name}>
+                                        <SkillImage src={item.image} alt="" loading="lazy" />
                                         {item.name}
                                     </SkillItem>
                                 ))}
                             </SkillList>
-                        </Skill>
+                        </Reveal>
                     ))}
                 </SkillsContainer>
             </Wrapper>
